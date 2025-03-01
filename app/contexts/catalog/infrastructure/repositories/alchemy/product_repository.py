@@ -4,8 +4,8 @@ from infrastructure.mappers.product.product_mapper import ProductMapper
 from contexts.catalog.domain.entities.product_entity import Product
 from contexts.catalog.domain.repositories.product_repository import IProductRepository
 from contexts.catalog.domain.utils.either import Either, Success, Failure
-from infrastructure.error.unexpected import UnexpectedError
-from infrastructure.error.not_found import NotFoundError
+from domain.utils.error.unexpected import UnexpectedError
+from domain.utils.error.not_found import NotFoundError
 
 
 class ProductRepositorySQLAlchemy(IProductRepository):
