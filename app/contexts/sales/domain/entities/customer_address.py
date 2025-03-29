@@ -1,4 +1,4 @@
-import uuid
+from uuid import UUID
 
 
 class CustomerAddress:
@@ -6,7 +6,7 @@ class CustomerAddress:
 
     def __init__(
             self,
-            id: uuid.UUID, 
+            id: UUID, 
             number: str, 
             city: str, 
             state: str, 
@@ -19,7 +19,7 @@ class CustomerAddress:
         self.number = number
         self.city = city
         self.state = state
-        self.zip_code = zip_code # TODO: validate zip code with VO
+        self.zip_code = zip_code
         self.country = country
         self.complement = complement
         self.address = address

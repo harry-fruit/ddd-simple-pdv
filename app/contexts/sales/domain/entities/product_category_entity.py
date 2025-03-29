@@ -1,11 +1,11 @@
 from shared.domain.entity import Entity
-import uuid
+from uuid import UUID
 
 
 class ProductCategory(Entity):
     """A Domain Entity representing a Product Category in the system."""
 
-    def __init__(self, id: uuid.UUID, unique_key: str, name: str):
+    def __init__(self, id: UUID, unique_key: str, name: str):
         self.id = id
         self.name = name
         self.unique_key = unique_key

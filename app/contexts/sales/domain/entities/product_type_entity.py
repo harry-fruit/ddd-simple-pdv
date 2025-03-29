@@ -19,4 +19,4 @@ class ProductType(Entity):
         self.unique_key = unique_key
 
     def __repr__(self):
-        return f"ProductType(id={self.id}, name={self.name}, unique_key={self.unique_key})"
+        return f"ProductType(id={self.id}, name={self.name}, unique_key={self.unique_key}, product_category={self.product_category})"
