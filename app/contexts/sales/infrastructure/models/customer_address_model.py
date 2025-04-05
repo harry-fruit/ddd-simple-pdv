@@ -3,7 +3,7 @@ from db.database import Base
 from sqlalchemy.orm import mapped_column, Mapped
 from sqlalchemy import String
 
-class CustomerAddress(Base):
+class CustomerAddressAlchemyModel(Base):
     __tablename__ = "customer_address"
 
     id: Mapped[UUID] = mapped_column(primary_key=True)

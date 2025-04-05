@@ -3,7 +3,7 @@ from db.database import Base
 from sqlalchemy.orm import mapped_column, Mapped
 from uuid import UUID
 
-class Brand(Base):
+class BrandAlchemyModel(Base):
     __tablename__ = "brand"
 
     id: Mapped[UUID] = mapped_column(primary_key=True)

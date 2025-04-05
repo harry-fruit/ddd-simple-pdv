@@ -1,0 +1,16 @@
+services:
+  pg_ecommerce:
+    image: postgres:15
+    container_name: pg_ecommerce
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: rootroot
+      POSTGRES_DB: dev
+      POSTGRES_SCHEMA: sales
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:

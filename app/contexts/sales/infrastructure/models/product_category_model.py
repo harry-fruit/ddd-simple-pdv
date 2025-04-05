@@ -4,9 +4,9 @@ from sqlalchemy.orm import mapped_column, Mapped
 from sqlalchemy import String
 from typing import List
 from sqlalchemy.orm import relationship
-from models.product_type_model import ProductType
+from models.product_type_model import ProductTypeAlchemyModel
 
-class ProductCategory(Base):
+class ProductCategoryAlchemyModel(Base):
     __tablename__ = "product_category"
 
     id: Mapped[UUID] = mapped_column(primary_key=True)
@@ -17,7 +17,7 @@ class ProductCategory(Base):
         unique=True
     )
 
-    product_type: Mapped[List[ProductType]] = relationship(
+    product_type: Mapped[List[ProductTypeAlchemyModel]] = relationship(
         back_populates="product_category", cascade="all"
     )
 
