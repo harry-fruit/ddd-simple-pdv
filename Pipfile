@@ -10,8 +10,9 @@ python-dotenv = "*"
 dotenv = "*"
 sqlalchemy = "*"
 psycopg2-binary = "*"
+dependency-injector = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.13"
+python_version = "3.11"

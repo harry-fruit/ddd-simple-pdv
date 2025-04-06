@@ -1,4 +1,4 @@
-from db.database import SessionLocal
+from infrastructure.db.database import SessionLocal
 from contextlib import contextmanager
 
 @contextmanager
