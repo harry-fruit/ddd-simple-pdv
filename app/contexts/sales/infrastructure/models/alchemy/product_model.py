@@ -1,26 +1,20 @@
-# # db/models.py
-# from sqlalchemy import Column, Integer, String
-# from db.database import Base
-# from typing import Optional
-# from sqlalchemy import ForeignKey
-# from sqlalchemy import String
-# from typing import List
+from db.database import Base
+from models.alchemy.order_item_model import OrderItemAlchemyModel
+from sqlalchemy.orm import mapped_column, Mapped
+from typing import List
+from sqlalchemy.orm import relationship
+from sqlalchemy import ForeignKey, Float
+from uuid import UUID
 
-# from sqlalchemy.orm import Mapped
-# from sqlalchemy.orm import mapped_column
-# from sqlalchemy.orm import relationship
-# from uuid import UUID
+class ProductAlchemyModel(Base):
+    __tablename__ = "product"
 
-# class User(Base):
-#     __tablename__ = "product"
+    product_id: Mapped[UUID] = mapped_column(primary_key=True)
+    customer_id: Mapped[UUID] = mapped_column(ForeignKey("customer.customer_id"))
+    price: Mapped[float] = mapped_column(type_=Float, nullable=False)
+    order_item: Mapped[List[OrderItemAlchemyModel]] = relationship(
+        back_populates="product", cascade="all"
+    )
 
-#     id: Mapped[UUID] = mapped_column(primary_key=True)
-#     name: Mapped[str] = mapped_column(String(30))
-#     fullname: Mapped[Optional[str]]
-
-#     addresses: Mapped[list["Address"]] = relationship(
-#         back_populates="user", cascade="all, delete-orphan"
-#     )
-
-#     def __repr__(self) -> str:
-#         return f"User(id={self.id!r}, name={self.name!r}, fullname={self.fullname!r})"
+    def __repr__(self) -> str:
+        return f"Product(id={self.product_id!r}, customer_id={self.customer_id!r}, price={self.price!r})"
