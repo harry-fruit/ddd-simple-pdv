@@ -11,15 +11,11 @@ class Order:
             self, 
             order_id: int, 
             customer_id: int, 
-            product_id: int, 
-            quantity: int, 
             price: float,
             order_items: list[OrderItem]
         ):
         self.order_id = order_id
         self.customer_id = customer_id
-        self.product_id = product_id
-        self.quantity = quantity
         self.price = price
         self.order_items = order_items
 

@@ -4,7 +4,7 @@ from sqlalchemy.orm import mapped_column, Mapped
 from sqlalchemy import String
 from typing import List
 from sqlalchemy.orm import relationship
-from models.product_type_model import ProductTypeAlchemyModel
+from models.alchemy.product_type_model import ProductTypeAlchemyModel
 
 class ProductCategoryAlchemyModel(Base):
     __tablename__ = "product_category"
