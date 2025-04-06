@@ -6,7 +6,7 @@ class CustomerAddress:
 
     def __init__(
             self,
-            id: UUID, 
+            customer_address_id: UUID, 
             number: str, 
             city: str, 
             state: str, 
@@ -15,7 +15,7 @@ class CustomerAddress:
             complement: str, 
             address: str
         ):
-        id = id
+        customer_address_id = customer_address_id
         self.number = number
         self.city = city
         self.state = state

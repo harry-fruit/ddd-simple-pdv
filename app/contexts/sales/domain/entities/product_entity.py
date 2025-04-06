@@ -3,14 +3,14 @@ from domain.entities.product_category_entity import ProductCategory
 from domain.entities.product_type_entity import ProductType
 from domain.entities.brand_entity import Brand
 from shared.domain.entity import Entity
-import uuid
+from uuid import UUID
 
 class Product(Entity):
     """A Domain Entity representing a Product in the system."""
 
     def __init__(
             self, 
-            id: uuid.UUID,
+            product_id: UUID,
             name: str, 
             description: str,
             price: Price,
@@ -18,7 +18,7 @@ class Product(Entity):
             product_type: ProductType,
             brand: Brand,
         ):
-        self.id = id
+        self.product_id = product_id
         self.name = name
         self.description = description
         self.price = price
@@ -31,4 +31,4 @@ class Product(Entity):
         self.price = new_price
 
     def __repr__(self):
-        return f"Product(id={self.id}, name={self.name}, price={self.price})"
+        return f"Product(product_id={self.product_id}, name={self.name}, price={self.price})"

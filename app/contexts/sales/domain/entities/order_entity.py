@@ -1,4 +1,5 @@
 from domain.entities.order_item_entity import OrderItem
+from domain.entities.customer_entity import Customer
 from shared.either import Either, Success, Failure
 from shared.errors.unexpected_error import UnexpectedError
 
@@ -10,12 +11,12 @@ class Order:
     def __init__(
             self, 
             order_id: int, 
-            customer_id: int, 
+            customer: Customer, 
             price: float,
             order_items: list[OrderItem]
         ):
         self.order_id = order_id
-        self.customer_id = customer_id
+        self.customer = customer
         self.price = price
         self.order_items = order_items
 

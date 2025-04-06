@@ -1,6 +1,6 @@
 from domain.entities.product_category_entity import ProductCategory
 from shared.domain.entity import Entity
-import uuid
+from uuid import UUID
 
 
 class ProductType(Entity):
@@ -8,15 +8,15 @@ class ProductType(Entity):
 
     def __init__(
             self, 
-            id: uuid.UUID,
+            product_type_id: UUID,
             unique_key: str, 
             name: str, 
             product_category: ProductCategory, 
         ):
-        self.id = id
+        self.product_type_id = product_type_id
         self.product_category = product_category
         self.name = name
         self.unique_key = unique_key
 
     def __repr__(self):
-        return f"ProductType(id={self.id}, name={self.name}, unique_key={self.unique_key}, product_category={self.product_category})"
+        return f"ProductType(product_type_id={self.product_type_id}, name={self.name}, unique_key={self.unique_key}, product_category={self.product_category})"

@@ -3,7 +3,7 @@ from shared.domain.entities.user_entity import User
 from shared.domain.entity import Entity
 from shared.either import Either, Success, Failure
 from shared.errors.unexpected_error import UnexpectedError
-import uuid
+from uuid import UUID
 
 
 Response = Either[None, BaseException]
@@ -18,15 +18,15 @@ class Customer(Entity):
 
     def __init__(
             self, 
-            id: uuid.UUID, 
+            customer_id: UUID, 
             name: str, 
             addresses: list[CustomerAddress], 
             user: User
         ):
-        self.id = id
+        self.customer_id = customer_id
         self.name = name
-        self.addresses = addresses
         self.user = user
+        self.addresses = addresses
 
     def add_address(self, address: CustomerAddress) -> Response:
         """Business rule to add an address to the customer."""
@@ -53,4 +53,4 @@ class Customer(Entity):
             return Failure(UnexpectedError(e))
 
     def __repr__(self):
-        return f"Customer(id={self.customer_id}, name={self.name}, address={self.address}, user={self.user})"
+        return f"Customer(customer_id={self.customer_id}, name={self.name}, address={self.address}, user={self.user})"
